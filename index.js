@@ -44,13 +44,13 @@ app.get('/', (req, res) => {
 
 app.post('/sign_in', (req, res) =>{
   // res.send(req.body)   //-> this is available through urlencoded
-  const COOKIE_MAX_AGE = 1000 * 60 * 60 * 24 // a day in milliseconds
+  
   const username = req.body.username
-  res.cookie('username', username, {maxAge: COOKIE_MAX_AGE})
+  res.cookie('username', username)
   res.redirect('/')
 })
 
-//'----------Sign in POST request-------->
+
 app.post('/sign_out', (req, res) =>{
   res.clearCookie('username')
   res.redirect('/')
